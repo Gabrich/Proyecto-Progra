@@ -1,3 +1,6 @@
+
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -9,7 +12,14 @@
  * @author Administrador
  */
 public class Login extends javax.swing.JFrame {
-
+    
+    Object [] col={"Usuario","Pass"};
+    Object[][] datosEm={{"edgardo","abc"},{"gabriel","123"},{"jorge","12"}};
+    Object[][] datosAdm={{"jorge","12"}};
+    
+    //arreglo con los nombres de usuaio y pass almacenados
+    DefaultTableModel empleados= new DefaultTableModel(datosEm,col);
+    DefaultTableModel administrador= new DefaultTableModel(datosAdm,col);
     /**
      * Creates new form Login
      */
@@ -56,6 +66,11 @@ public class Login extends javax.swing.JFrame {
         jRadioButton2.setText("Empleado");
 
         jButton1.setText("Ingresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -111,6 +126,34 @@ public class Login extends javax.swing.JFrame {
     private void jRadioButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRadioButton1ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        if(jRadioButton1.isSelected()){
+         for(int i=0;i<empleados.getRowCount();i++){
+                boolean match1=false;
+             
+                
+                if(jTextField1.getText().equals(empleados.getValueAt(i, 0))&&jPasswordField1.getText().equals(empleados.getValueAt(i, 1))){
+                    match1=true;
+                    // hacer visible stock
+                }
+                
+         }
+        }
+        if(jRadioButton2.isSelected()){
+            for(int i=0;i<administrador.getRowCount();i++){
+                boolean match2=false;
+                
+                if(jTextField1.getText().equals(administrador.getValueAt(i, 0))&&jPasswordField1.getText().equals(administrador.getValueAt(i, 1))){
+                 match2=true;
+                 
+                 //hacer visible administrador
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
