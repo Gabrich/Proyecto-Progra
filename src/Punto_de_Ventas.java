@@ -13,7 +13,9 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     /**
      * Creates new form Punto_de_Ventas
      */
-    public Punto_de_Ventas() {
+    Manager m;
+    public Punto_de_Ventas(Manager m) {
+        this.m=m;
         initComponents();
     }
 
@@ -116,14 +118,12 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setHeaderValue("Cantidad");
-            jTable2.getColumnModel().getColumn(1).setHeaderValue("Código ");
-            jTable2.getColumnModel().getColumn(2).setHeaderValue("Descripcion");
-            jTable2.getColumnModel().getColumn(3).setHeaderValue("Valor Unitario");
-            jTable2.getColumnModel().getColumn(4).setResizable(false);
-            jTable2.getColumnModel().getColumn(4).setHeaderValue("Total");
-        }
+        jTable2.getColumnModel().getColumn(0).setHeaderValue("Cantidad");
+        jTable2.getColumnModel().getColumn(1).setHeaderValue("Código ");
+        jTable2.getColumnModel().getColumn(2).setHeaderValue("Descripcion");
+        jTable2.getColumnModel().getColumn(3).setHeaderValue("Valor Unitario");
+        jTable2.getColumnModel().getColumn(4).setResizable(false);
+        jTable2.getColumnModel().getColumn(4).setHeaderValue("Total");
 
         jLabel11.setText("Total :");
 
@@ -277,7 +277,7 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel13)
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -334,7 +334,7 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Punto_de_Ventas().setVisible(true);
+             //   new Punto_de_Ventas().setVisible(true);
             }
         });
     }

@@ -1,4 +1,5 @@
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /*
@@ -13,17 +14,19 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Login extends javax.swing.JFrame {
     
-    Object [] col={"Usuario","Pass"};
+   
     Object[][] datosEm={{"edgardo","abc"},{"gabriel","123"},{"jorge","12"}};
     Object[][] datosAdm={{"jorge","12"}};
     
     //arreglo con los nombres de usuaio y pass almacenados
-    DefaultTableModel empleados= new DefaultTableModel(datosEm,col);
-    DefaultTableModel administrador= new DefaultTableModel(datosAdm,col);
+    
     /**
      * Creates new form Login
      */
-    public Login() {
+    Manager m;
+    public Login(Manager m) {
+        this.m=m;
+        
         initComponents();
     }
 
@@ -48,8 +51,11 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1.setText("Usuario :");
 
+        jTextField1.setText("edgardo");
+
         jLabel2.setText("Password :");
 
+        jPasswordField1.setText("abc");
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -64,6 +70,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         jRadioButton2.setText("Empleado");
+        jRadioButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRadioButton2ActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,26 +91,33 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(82, 82, 82)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel1))
-                            .addComponent(jRadioButton1))
+                        .addComponent(jRadioButton1)
                         .addGap(41, 41, 41)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jRadioButton2)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jPasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
-                                .addComponent(jTextField1))))
+                        .addComponent(jRadioButton2))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(149, 149, 149)
-                        .addComponent(jButton1)))
-                .addContainerGap(82, Short.MAX_VALUE))
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(66, 66, 66)))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jRadioButton1)
+                    .addComponent(jRadioButton2))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -107,11 +125,7 @@ public class Login extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
-                .addGap(32, 32, 32)
+                .addGap(90, 90, 90)
                 .addComponent(jButton1)
                 .addContainerGap(59, Short.MAX_VALUE))
         );
@@ -130,30 +144,47 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        if(jRadioButton1.isSelected()){
-         for(int i=0;i<empleados.getRowCount();i++){
-                boolean match1=false;
-             
-                
-                if(jTextField1.getText().equals(empleados.getValueAt(i, 0))&&jPasswordField1.getText().equals(empleados.getValueAt(i, 1))){
-                    match1=true;
-                    // hacer visible stock
+      
+        
+        
+        if(jRadioButton2.isSelected()){
+         for(int i=0;i<datosEm.length;i++){
+                        
+                        if(jTextField1.getText().equals(datosEm[i][0])
+                        &&jPasswordField1.getText().equals(datosEm[i][1])){
+                   
+                  this.setVisible(false);
+                  m.stock.setVisible(true);
                 }
                 
          }
-        }
-        if(jRadioButton2.isSelected()){
-            for(int i=0;i<administrador.getRowCount();i++){
-                boolean match2=false;
+        
+        }else{
+        }if(jRadioButton1.isSelected()){
+            for(int i=0;i<datosAdm.length;i++){
+               
                 
-                if(jTextField1.getText().equals(administrador.getValueAt(i, 0))&&jPasswordField1.getText().equals(administrador.getValueAt(i, 1))){
-                 match2=true;
+                if(!jTextField1.getText().equals(datosAdm[i][0])&&
+                        !jPasswordField1.getText().equals(datosAdm[i][1])){
                  
-                 //hacer visible administrador
+                 
+                this.setVisible(false);
+                m.adm.setVisible(true);
                 }
             }
-        }
+        }else{
+             JOptionPane.showMessageDialog(this, "Usuario Invalido");
+        
+            
+       
+        } 
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jRadioButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButton2ActionPerformed
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_jRadioButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -185,7 +216,7 @@ public class Login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Login().setVisible(true);
+             //   new Login().setVisible(true);
             }
         });
     }

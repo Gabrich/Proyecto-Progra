@@ -13,7 +13,9 @@ public class Administrador extends javax.swing.JFrame {
     /**
      * Creates new form Administrador
      */
-    public Administrador() {
+    Manager m;
+    public Administrador(Manager m) {
+        this.m=m;
         initComponents();
     }
 
@@ -150,7 +152,7 @@ public class Administrador extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Administrador().setVisible(true);
+                //new Administrador().setVisible(true);
             }
         });
     }

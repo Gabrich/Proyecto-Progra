@@ -1,3 +1,8 @@
+
+import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,8 +18,24 @@ public class Stock extends javax.swing.JFrame {
     /**
      * Creates new form Stock
      */
-    public Stock() {
+     Manager m;
+         
+     Object columnas[]={"Producto","Caracteristicas","Codigo","Precio","Cantidad"};
+     Object productos[][]={{"galvano","No se q caract tiene un galvano xd","0001","5000","40"}};
+     //SEGUIR LLENANDO
+     //SEGUIR LLENANDO
+      //SEGUIR LLENANDO
+      //SEGUIR LLENANDO
+     
+     
+     DefaultTableModel StockProd=new DefaultTableModel(productos,columnas);
+     DefaultTableModel TablaStock=new DefaultTableModel(null,columnas);
+    public Stock(Manager m) {
+        
+        
+        this.m=m;
         initComponents();
+        jTable2.setModel(TablaStock);
     }
 
     /**
@@ -37,18 +58,31 @@ public class Stock extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jToggleButton1.setText("Buscar");
+        jToggleButton1.setText("Buscar Producto");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Producto", "Código ", "Precio", "Cantidad"
+                "Producto", "Caracteristicas", "Código ", "Precio", "Cantidad"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
 
         jLabel1.setText("Cantidad :");
@@ -78,7 +112,7 @@ public class Stock extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -117,6 +151,25 @@ public class Stock extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        
+        
+      for(int i=0;i<StockProd.getRowCount();i++){
+          
+          if(!jTextField1.getText().equals(StockProd.getValueAt(i, 0))){
+              Object match[]={StockProd.getValueAt(i, 0),StockProd.getValueAt(i, 1),StockProd.getValueAt(i, 2),StockProd.getValueAt(i, 3),StockProd.getValueAt(i, 4)};
+          TablaStock.addRow(match);
+          } else{
+              JOptionPane.showMessageDialog(this, "Busqueda no coincide");
+          }     
+                
+            }
+                
+        
+            
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -147,7 +200,7 @@ public class Stock extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Stock().setVisible(true);
+             //   new Stock().setVisible(true);
             }
         });
     }
