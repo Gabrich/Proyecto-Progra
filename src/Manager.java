@@ -10,8 +10,8 @@ public class Manager {
     public Manager() {
        login = new Login(this);
        stock=new Stock(this);
-      // ptoVenta=new Punto_de_Ventas(this);
-       //adm=new Administrador(this);
+       ptoVenta=new Punto_de_Ventas(this);
+      adm=new Administrador(this);
        login.setVisible(true);
     }
     

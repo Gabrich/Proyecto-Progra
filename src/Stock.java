@@ -21,7 +21,8 @@ public class Stock extends javax.swing.JFrame {
      Manager m;
          
      Object columnas[]={"Producto","Caracteristicas","Codigo","Precio","Cantidad"};
-     Object productos[][]={{"galvano","No se q caract tiene un galvano xd","0001","5000","40"}};
+     
+     Object productos[][]={{"galvano", "No se q caract tiene un galvano xd","0001","5000","40"}};
      //SEGUIR LLENANDO
      //SEGUIR LLENANDO
       //SEGUIR LLENANDO
@@ -30,13 +31,17 @@ public class Stock extends javax.swing.JFrame {
      
      DefaultTableModel StockProd=new DefaultTableModel(productos,columnas);
      DefaultTableModel TablaStock=new DefaultTableModel(null,columnas);
+     
+ //Object col[]={"Cantidad","Codigo","Descripcion","Valor Unitario","Total"};
+   // public DefaultTableModel venta=new DefaultTableModel(null,col);
+   
     public Stock(Manager m) {
         
         
         this.m=m;
         initComponents();
         jTable2.setModel(TablaStock);
-    }
+    }   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -55,6 +60,7 @@ public class Stock extends javax.swing.JFrame {
         jSpinner1 = new javax.swing.JSpinner();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,9 +73,7 @@ public class Stock extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "Producto", "Caracteristicas", "Código ", "Precio", "Cantidad"
@@ -97,22 +101,25 @@ public class Stock extends javax.swing.JFrame {
         jLabel2.setText("                    IMAGEN");
         jLabel2.setBorder(new javax.swing.border.MatteBorder(null));
 
+        jButton2.setText("Cerrar Sesion");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(42, 42, 42)
                 .addComponent(jButton1)
                 .addGap(58, 58, 58))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(47, 47, 47)
                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -121,6 +128,13 @@ public class Stock extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -141,7 +155,8 @@ public class Stock extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addGap(18, 18, Short.MAX_VALUE)
+                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -149,6 +164,10 @@ public class Stock extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+     
+        this.setVisible(false);
+        m.ptoVenta.setVisible(true);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
@@ -156,19 +175,26 @@ public class Stock extends javax.swing.JFrame {
         
         
       for(int i=0;i<StockProd.getRowCount();i++){
-          
-          if(!jTextField1.getText().equals(StockProd.getValueAt(i, 0))){
+          for(int j=0;j<StockProd.getColumnCount();i++){
+          if(jTextField1.getText().equals(StockProd.getValueAt(i, 0))){
               Object match[]={StockProd.getValueAt(i, 0),StockProd.getValueAt(i, 1),StockProd.getValueAt(i, 2),StockProd.getValueAt(i, 3),StockProd.getValueAt(i, 4)};
           TablaStock.addRow(match);
           } else{
               JOptionPane.showMessageDialog(this, "Busqueda no coincide");
           }     
-                
+               } 
             }
                 
         
             
     }//GEN-LAST:event_jToggleButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+        this.setVisible(false);
+        m.login.setVisible(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -207,6 +233,7 @@ public class Stock extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
