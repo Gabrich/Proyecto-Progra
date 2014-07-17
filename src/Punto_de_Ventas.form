@@ -353,38 +353,32 @@
         <Component class="javax.swing.JTable" name="jTable2">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="5" rowCount="3">
-                <Column editable="true" title="Cantidad" type="java.lang.Object"/>
+              <Table columnCount="4" rowCount="3">
                 <Column editable="true" title="C&#xf3;digo " type="java.lang.Object"/>
                 <Column editable="true" title="Descripcion" type="java.lang.Object"/>
-                <Column editable="true" title="Valor Unitario" type="java.lang.Object"/>
-                <Column editable="true" title="Total" type="java.lang.Object"/>
+                <Column editable="true" title="Valor Unitario" type="java.lang.Integer"/>
+                <Column editable="true" title="Total" type="java.lang.Integer"/>
               </Table>
             </Property>
             <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
               <TableColumnModel selectionModel="0">
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Cantidad"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="C&#xf3;digo "/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Descripcion"/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title value="Valor Unitario"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
                 <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="false">
-                  <Title value="Total"/>
+                  <Title/>
                   <Editor/>
                   <Renderer/>
                 </Column>
@@ -394,6 +388,9 @@
               <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="1"/>
+          </AuxValues>
         </Component>
       </SubComponents>
     </Container>

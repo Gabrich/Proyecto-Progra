@@ -6,10 +6,9 @@ import javax.swing.table.DefaultTableModel;
 public class Punto_de_Ventas extends javax.swing.JFrame {
     
     Manager m;
-    Object columnas[] = {"Cantidad","Codigo","Descripcion","Valor Unitario","Total"};
     
-    public DefaultTableModel venta = new DefaultTableModel(null,columnas);
-    
+    DefaultTableModel Venta;
+       
     Calendar c = Calendar.getInstance();
     String dia = Integer.toString(c.get(Calendar.DATE));
     String mes = Integer.toString(c.get(Calendar.MONTH));
@@ -21,11 +20,18 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     public Punto_de_Ventas(Manager m) {
         this.m = m;        
         initComponents();  
-        jLabel8.setText(dia+"/"+mes+"/"+año);
-        jTable2.setModel(venta);        
+        jLabel8.setText(dia+"/ "+mes+"/ "+año);
+               
         jButton2.setVisible(false);
     }   
-   
+
+    public Punto_de_Ventas(DefaultTableModel Venta) {
+        this.Venta = m.stock.Venta;
+        initComponents();
+        jTable2.setModel(Venta);
+        
+    }
+  
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -134,22 +140,25 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "Cantidad", "Código ", "Descripcion", "Valor Unitario", "Total"
+                "Código ", "Descripcion", "Valor Unitario", "Total"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Integer.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(jTable2);
         if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(0).setHeaderValue("Cantidad");
-            jTable2.getColumnModel().getColumn(1).setHeaderValue("Código ");
-            jTable2.getColumnModel().getColumn(2).setHeaderValue("Descripcion");
-            jTable2.getColumnModel().getColumn(3).setHeaderValue("Valor Unitario");
-            jTable2.getColumnModel().getColumn(4).setResizable(false);
-            jTable2.getColumnModel().getColumn(4).setHeaderValue("Total");
+            jTable2.getColumnModel().getColumn(3).setResizable(false);
         }
 
         jLabel11.setText("Total :");
@@ -455,7 +464,7 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
+    public javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
