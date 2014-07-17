@@ -1,34 +1,31 @@
 
+import java.util.Calendar;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
-/**
- *
- * @author Administrador
- */
 public class Punto_de_Ventas extends javax.swing.JFrame {
-
-  
     
     Manager m;
-    Object col[]={"Cantidad","Codigo","Descripcion","Valor Unitario","Total"};
-    public DefaultTableModel venta=new DefaultTableModel(null,col);
+    Object columnas[] = {"Cantidad","Codigo","Descripcion","Valor Unitario","Total"};
     
+    public DefaultTableModel venta = new DefaultTableModel(null,columnas);
+    
+    Calendar c = Calendar.getInstance();
+    String dia = Integer.toString(c.get(Calendar.DATE));
+    String mes = Integer.toString(c.get(Calendar.MONTH));
+    String año = Integer.toString(c.get(Calendar.YEAR));
     String clientes[][]={{"18575347-6","Gabriel Roman ","Antonio Varas 897","Temuco","Deporte","2675421"}};
             
    DefaultTableModel registroCli=new DefaultTableModel(null,clientes);
            
     public Punto_de_Ventas(Manager m) {
-        this.m=m;
-        initComponents();
-        jTable2.setModel(venta);
+        this.m = m;        
+        initComponents();  
+        jLabel8.setText(dia+"/"+mes+"/"+año);
+        jTable2.setModel(venta);        
         jButton2.setVisible(false);
-    }
+    }   
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -99,6 +96,7 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
 
         jLabel6.setText("Ciudad :");
 
+        jLabel7.setText("1");
         jLabel7.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         jLabel8.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -145,12 +143,14 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
             }
         ));
         jScrollPane2.setViewportView(jTable2);
-        jTable2.getColumnModel().getColumn(0).setHeaderValue("Cantidad");
-        jTable2.getColumnModel().getColumn(1).setHeaderValue("Código ");
-        jTable2.getColumnModel().getColumn(2).setHeaderValue("Descripcion");
-        jTable2.getColumnModel().getColumn(3).setHeaderValue("Valor Unitario");
-        jTable2.getColumnModel().getColumn(4).setResizable(false);
-        jTable2.getColumnModel().getColumn(4).setHeaderValue("Total");
+        if (jTable2.getColumnModel().getColumnCount() > 0) {
+            jTable2.getColumnModel().getColumn(0).setHeaderValue("Cantidad");
+            jTable2.getColumnModel().getColumn(1).setHeaderValue("Código ");
+            jTable2.getColumnModel().getColumn(2).setHeaderValue("Descripcion");
+            jTable2.getColumnModel().getColumn(3).setHeaderValue("Valor Unitario");
+            jTable2.getColumnModel().getColumn(4).setResizable(false);
+            jTable2.getColumnModel().getColumn(4).setHeaderValue("Total");
+        }
 
         jLabel11.setText("Total :");
 
@@ -226,7 +226,6 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
                                                         .addGap(66, 66, 66)
                                                         .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE))
                                                     .addGroup(layout.createSequentialGroup()
-                                                        .addGap(0, 0, 0)
                                                         .addComponent(jLabel10)
                                                         .addGap(18, 18, 18)
                                                         .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -347,7 +346,7 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(this, "Venta Realizada");
         
         
     }//GEN-LAST:event_jButton3ActionPerformed

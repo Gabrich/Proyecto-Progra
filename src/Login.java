@@ -1,5 +1,4 @@
 
-
 public class Login extends javax.swing.JFrame {
     
     Object[][] datosEm={{"edgardo","abc"},{"gabriel","123"},{"jorge","12"}};
@@ -10,7 +9,7 @@ public class Login extends javax.swing.JFrame {
     Manager m;
     
     public Login(Manager m) {
-        this.m=m;
+        this.m = m;
         
         initComponents();
     }
@@ -133,7 +132,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-               
+        
+        boolean a = false;
         if(jRadioButton1.isSelected()){
             for(int i=0; i<datosAdm.length; i++){
                 if(jTextField1.getText().equals(datosAdm[i][0])&&
@@ -141,10 +141,8 @@ public class Login extends javax.swing.JFrame {
                     //this.setVisible(false);
                     jLabel3.setText("");
                     m.adm.setVisible(true);
-                    
-                }else{
-                    jLabel3.setText("Usuario y/o contraseña incorrecta");
-                    }                                
+                    a = true;
+                }                                
             }
         }        
         
@@ -155,12 +153,14 @@ public class Login extends javax.swing.JFrame {
                     //this.setVisible(false);
                     jLabel3.setText("");
                     m.stock.setVisible(true);
-                                        
-                }else{
-                    jLabel3.setText("Usuario y/o contraseña incorrecta");
-                    }        
+                    a = true;                                        
+                }        
             }        
         }
+        
+    if(a == false){
+        jLabel3.setText("Usuario y/o contraseña iválido(s)");
+    }
         
       
     if(buttonGroup1.isSelected(null)){
