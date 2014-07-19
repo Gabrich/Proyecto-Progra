@@ -1,12 +1,22 @@
+import javax.swing.table.DefaultTableModel;
 
 public class Administrador extends javax.swing.JFrame {
 
     Manager m;
+    DefaultTableModel Admin;
     
     public Administrador(Manager m) {
         this.m=m;
         initComponents();
     }
+
+    public Administrador(DefaultTableModel Admin) {
+        this.Admin = m.ptoVenta.Admin;
+        initComponents();
+        jTable1.setModel(Admin);
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,13 +44,10 @@ public class Administrador extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Nº Venta", "Fecha", "Producto", "Cantidad", "Vendedor", "Cliente", "Monto"
+                "Nº Venta", "Fecha", "Codigo Producto", "Cantidad", "Vendedor", "Rut Cliente", "Monto"
             }
         ));
         jScrollPane1.setViewportView(jTable1);
@@ -165,6 +172,6 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JRadioButton jRadioButton3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
