@@ -1,10 +1,12 @@
 
 public class Login extends javax.swing.JFrame {
     
+    //arreglo con los nombres de usuario y contraseñas de los empleados y administradores almacenados, respectivamente
+    
     Object[][] datosEm={{"edgardo","abc"},{"gabriel","123"},{"jorge","12"}};
     Object[][] datosAdm={{"jorge","12"}};
     
-    //arreglo con los nombres de usuaio y pass almacenados
+    
     
     Manager m;
     
@@ -133,6 +135,10 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
+        /*Al seleccionar alguna casilla (Empleado o Administrador), verificará los datos ingresados
+         con los que se encuentran almacenados en los respectivos arreglos, si los datos (Usuario y contraseña)
+         no coinciden, mostrará un mensaje de error*/
+       
         boolean a = false;
         if(jRadioButton1.isSelected()){
             for(int i=0; i<datosAdm.length; i++){
@@ -157,12 +163,12 @@ public class Login extends javax.swing.JFrame {
                 }        
             }        
         }
-        
+       
     if(a == false){
-        jLabel3.setText("Usuario y/o contraseña iválido(s)");
+        jLabel3.setText("Usuario y/o contraseña inválido(s)");
     }
         
-      
+      //Mensaje que muestra si no selecciona alguna casilla
     if(buttonGroup1.isSelected(null)){
         jLabel3.setText("Seleccione Tipo de usuario");
         }  

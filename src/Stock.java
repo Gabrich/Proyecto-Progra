@@ -175,7 +175,7 @@ public class Stock extends javax.swing.JFrame {
         
         boolean a = false;
         for(int i=0; i<StockProd.getRowCount(); i++){
-            if(jTextField1.getText().equals(StockProd.getValueAt(i, 0))){
+            if(jTextField1.getText().equalsIgnoreCase((String) StockProd.getValueAt(i, 0))){
                 Object match[]={StockProd.getValueAt(i, 0),StockProd.getValueAt(i, 1),StockProd.getValueAt(i, 2),StockProd.getValueAt(i, 3),StockProd.getValueAt(i, 4)};
                 TablaStock.addRow(match);                
                 a = true;
