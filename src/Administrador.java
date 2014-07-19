@@ -3,7 +3,7 @@ import javax.swing.table.DefaultTableModel;
 public class Administrador extends javax.swing.JFrame {
 
     Manager m;
-    DefaultTableModel Admin;
+    DefaultTableModel Admin;    
     
     public Administrador(Manager m) {
         this.m=m;

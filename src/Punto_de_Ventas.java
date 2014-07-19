@@ -22,7 +22,7 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     
     Object columnas[]={"Nº Venta","Fecha","Codigo Producto","Cantidad","Vendedor","rut cliente","monto"};
     
-    public DefaultTableModel Admin = new DefaultTableModel(null, columnas);
+    public DefaultTableModel Admin;
     
     public Punto_de_Ventas(Manager m) {
         this.m = m;        
@@ -30,7 +30,7 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
         jLabel8.setText(dia+"/ "+mes+"/ "+año);  
         //jLabel12.setText(x);
         jButton2.setVisible(false);
-        //Admin = (DefaultTableModel) m.adm.jTable1.getModel();
+       // Admin = (DefaultTableModel) m.adm.jTable1.getModel(); <---- no me funciona esta linea ¿?
     }     
 
     public Punto_de_Ventas(DefaultTableModel Venta) {
@@ -337,10 +337,10 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
                     .addComponent(jLabel13, javax.swing.GroupLayout.DEFAULT_SIZE, 19, Short.MAX_VALUE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton5)
-                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel14))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14)
+                    .addComponent(jButton5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -362,15 +362,11 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         int n = Integer.parseInt(jLabel7.getText())+1;
         jLabel7.setText(String.valueOf(n));
-        for(int i = 0; i<jTable2.getRowCount(); i++) {
-            int numero_venta = n;
-            String fecha = jLabel8.getText();
+        for(int i = 0; i<jTable2.getRowCount(); i++) {           
             String cod_prod = (String) jTable2.getValueAt(i, 1);
             int cantidad = (int) jTable2.getValueAt(i, 0);
-            String vendedor = m.login.jTextField1.getText();
-            String cliente = jTextField1.getText();
             
-            Object match[] = {numero_venta,fecha,cod_prod,cantidad,vendedor,cliente,null};
+            Object match[] = {n,jLabel8.getText(),cod_prod,cantidad,m.login.jTextField1.getText(),jTextField1.getText(),null};
             Admin.addRow(match);
         }        
         
