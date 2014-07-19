@@ -27,6 +27,7 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
         //jLabel12.setText(x);
         jButton2.setVisible(false);
         
+        
     }  
            
    
@@ -164,13 +165,11 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
             }
         });
         jScrollPane2.setViewportView(jTable2);
-        if (jTable2.getColumnModel().getColumnCount() > 0) {
-            jTable2.getColumnModel().getColumn(4).setResizable(false);
-        }
+        jTable2.getColumnModel().getColumn(4).setResizable(false);
 
         jLabel11.setText("Total :");
 
-        jLabel12.setFont(new java.awt.Font("Arial Black", 0, 24)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         jLabel12.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jLabel13.setText("Neto :");
@@ -385,7 +384,16 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
                 jTextField6.setText(null);
             
         }
+         int total=0;
+        for(int i=0;i<jTable2.getRowCount();i++){
+            total=total+(int)jTable2.getValueAt(i, 4);
+         }
         
+        jLabel12.setText("$ "+total);
+        jLabel16.setText("$ "+total*0.81);
+        jLabel19.setText("$ "+total*0.19);
+        jLabel18.setText("$ "+total);
+       
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
