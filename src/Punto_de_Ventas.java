@@ -12,11 +12,13 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     String dia = Integer.toString(c.get(Calendar.DATE));
     String mes = Integer.toString(c.get(Calendar.MONTH));
     String año = Integer.toString(c.get(Calendar.YEAR));
-    String clientes[][]={{"18575347-6","Gabriel Roman ","Antonio Varas 897","Temuco","Deporte","2675421"}};
+    Object col[]={"Rut","Nombre","Direccion","Comuna","Giro","Telefono"};
+    String clientes[][]={{"18575347-6","Gabriel Roman ","Antonio Varas 897","Temuco","Deporte","2675421"},
+                          {"18727167-3","Jorge Canio","Ines de Suarez 02080","Temuco","Deporte","2786443"}};
     
     //String x = (String) m.stock.Venta.getValueAt(0, 0);
     
-    DefaultTableModel registroCli=new DefaultTableModel(null,clientes);
+    DefaultTableModel registroCli=new DefaultTableModel(clientes, col);
     
     public Punto_de_Ventas(Manager m) {
         this.m = m;        
@@ -37,9 +39,6 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     }
 
  
-    
-
-   
     
   
 
@@ -365,15 +364,18 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         
-        for(int i=0;i<clientes.length;i++){
-            if(jTextField1.getText().equals(clientes[i][0])){
-               jTextField2.setText(clientes[i][1]);
-               jTextField3.setText(clientes[i][2]);
-               jTextField4.setText(clientes[i][3]);
-               jTextField5.setText(clientes[i][4]);
-               jTextField6.setText(clientes[i][5]);
+        boolean a=false;
+        for(int i=0;i<registroCli.getRowCount();i++){
+            if(jTextField1.getText().equals((String)registroCli.getValueAt(i, 0))){
+                a=true;
+               jTextField2.setText((String)registroCli.getValueAt(i, 1));
+               jTextField3.setText((String)registroCli.getValueAt(i, 2));
+               jTextField4.setText((String)registroCli.getValueAt(i, 3));
+               jTextField5.setText((String)registroCli.getValueAt(i, 4));
+               jTextField6.setText((String)registroCli.getValueAt(i, 5));
            }
-            else{
+        }
+            if(a==false){
                 jButton2.setVisible(true);
                 
                 jTextField2.setText(null);
@@ -381,7 +383,7 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
                 jTextField4.setText(null);
                 jTextField5.setText(null);
                 jTextField6.setText(null);
-            }
+            
         }
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -393,14 +395,24 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         
-             
-        Object añadir[]={jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText(),jTextField6.getText()};
-        registroCli.addRow(añadir);
-        
+        if(!jTextField1.getText().equals("")&&!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")
+                &&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")){    
+        Object clientes[]={jTextField1.getText(),jTextField2.getText(),jTextField3.getText(),jTextField4.getText(),jTextField5.getText(),jTextField6.getText()};
+        registroCli.addRow(clientes);
+        jButton2.setVisible(false);
+        }else{
+            JOptionPane.showMessageDialog(this, "Campos Obligatorios");
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+                jTextField2.setText(null);
+                jTextField3.setText(null);
+                jTextField4.setText(null);
+                jTextField5.setText(null);
+                jTextField6.setText(null);
+        
         this.setVisible(false);
         m.login.setVisible(true);
     }//GEN-LAST:event_jButton4ActionPerformed
