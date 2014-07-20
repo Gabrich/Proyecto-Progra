@@ -1,4 +1,5 @@
 
+import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -18,17 +19,16 @@ public class Stock extends javax.swing.JFrame {
      DefaultTableModel StockProd = new DefaultTableModel(productos,columnas);
      DefaultTableModel TablaStock = new DefaultTableModel(null,columnas);
      
-     JLabel Logo = new JLabel();     
-     
-     public DefaultTableModel Venta;    
+     public DefaultTableModel Venta; 
+     ImageIcon imagen;
         
     public Stock(Manager m) {
-                       
+        this.imagen = new ImageIcon("Steam.png");                       
         this.m=m;
-        initComponents();
+        initComponents();        
         jTable2.setModel(TablaStock);                     
         Venta = (DefaultTableModel) m.ptoVenta.jTable2.getModel();
-        
+        jLabel2.setIcon(imagen);
     }   
 
    

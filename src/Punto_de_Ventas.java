@@ -26,9 +26,7 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
         this.m = m;        
         initComponents();         
         jLabel8.setText(dia+"/ "+mes+"/ "+año);         
-        jButton2.setVisible(false);
-        //Admin = (DefaultTableModel) m.adm.jTable1.getModel(); //<---- Esta linea deberia obtener el modelo 
-                                                                   //de la tabla que se encuentra en Administrador, pero me tira error
+        jButton2.setVisible(false);        
     }                                            
 
     public Punto_de_Ventas(DefaultTableModel Venta) {
@@ -358,13 +356,14 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        DefaultTableModel adminTable = (DefaultTableModel)m.adm.jTable1.getModel();
         int n = Integer.parseInt(jLabel7.getText())+1;
         jLabel7.setText(String.valueOf(n));
         for(int i = 0; i<jTable2.getRowCount(); i++) {           
             String cod_prod = (String) jTable2.getValueAt(i, 1);
             int cantidad = (int) jTable2.getValueAt(i, 0);            
-            Object match[] = {jLabel7.getText(),jLabel8.getText(),cod_prod,cantidad,m.login.jTextField1.getText(),jTextField1.getText(),jLabel18.getText()};
-            Admin.addRow(match);
+            Object match[] = {jLabel7.getText(),jLabel8.getText(),cod_prod,cantidad,m.login.jTextField1.getText(),jTextField1.getText(),jLabel18.getText()};            
+            adminTable.addRow(match);
         }        
                 
         JOptionPane.showMessageDialog(this, "Venta Realizada");
