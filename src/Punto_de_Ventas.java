@@ -358,23 +358,33 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         DefaultTableModel adminTable = (DefaultTableModel)m.adm.jTable1.getModel();
-        int n = Integer.parseInt(jLabel7.getText())+1;
-        jLabel7.setText(String.valueOf(n));
+        int n = Integer.parseInt(jLabel7.getText())+1;        
         for(int i = 0; i<jTable2.getRowCount(); i++) {           
             String cod_prod = (String) jTable2.getValueAt(i, 1);
             int cantidad = (int) jTable2.getValueAt(i, 0);            
             Object match[] = {jLabel7.getText(),jLabel8.getText(),cod_prod,cantidad,m.login.jTextField1.getText(),jTextField1.getText(),jLabel16.getText()};            
             adminTable.addRow(match);
-        }        
-                
-        JOptionPane.showMessageDialog(this, "Venta Realizada");
-        m.adm.setVisible(true);
-                
+        } 
+        jTextField2.setText(null);
+        jTextField3.setText(null);
+        jTextField4.setText(null);
+        jTextField5.setText(null);
+        jTextField6.setText(null);
+        jLabel12.setText(null);
+        jLabel16.setText(null);
+        jLabel19.setText(null);
+        jLabel18.setText(null);
+        
+        int a =m.stock.Venta.getRowCount()-1;         
+        for(int i=a;i>=0;i--){            
+            m.stock.Venta.removeRow(i);
+        }   
+        jLabel7.setText(String.valueOf(n));      
+        JOptionPane.showMessageDialog(this, "Venta Realizada");               
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        
+                
         boolean a=false;
         for(int i=0;i<registroCli.getRowCount();i++){
             if(jTextField1.getText().equals((String)registroCli.getValueAt(i, 0))){
@@ -402,7 +412,7 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
          }
         
         jLabel12.setText(" $ "+total*1.19);
-        jLabel16.setText(String.valueOf(total));
+        jLabel16.setText(" $ "+String.valueOf(total));
         jLabel19.setText(" $ "+total*0.19);
         jLabel18.setText(" $ "+total*1.19);
                

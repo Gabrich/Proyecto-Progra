@@ -6,9 +6,7 @@ public class Administrador extends javax.swing.JFrame {
     DefaultTableModel Admin;   
    
     Object columnas[]={"Nº Venta","Fecha","Codigo Producto","Cantidad","Vendedor","rut cliente","monto"};
-         DefaultTableModel Datos=new DefaultTableModel(null, columnas);
-         
-                     
+    DefaultTableModel Datos = new DefaultTableModel(null, columnas);                     
                 
     public Administrador(Manager m) {
         this.m=m;
@@ -21,18 +19,13 @@ public class Administrador extends javax.swing.JFrame {
         jLabel3.setVisible(false);
         jTextField3.setVisible(false);
         jTextField4.setVisible(false);
-        jButton1.setVisible(false);
-        
-       
+        jButton1.setVisible(false);      
     }
 
     public Administrador(DefaultTableModel Admin) {
         this.Admin = m.ptoVenta.Admin;
         initComponents();
-        jTable1.setModel(Admin);
-        
-        
-               
+        jTable1.setModel(Admin);         
     }   
     
 
@@ -133,8 +126,8 @@ public class Administrador extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createSequentialGroup()
                             .addGap(21, 21, 21)
-                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(37, 37, 37)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -142,22 +135,22 @@ public class Administrador extends javax.swing.JFrame {
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(37, 37, 37)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(26, 26, 26)
+                                    .addGap(55, 55, 55)
                                     .addComponent(jLabel2)
-                                    .addGap(71, 71, 71)
-                                    .addComponent(jLabel3)))))
+                                    .addGap(82, 82, 82)
+                                    .addComponent(jLabel3))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(36, 36, 36)
+                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(44, 44, 44)
+                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(259, 259, 259)
+                        .addComponent(jButton1))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(263, 263, 263)
-                        .addComponent(jButton1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(71, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,28 +160,28 @@ public class Administrador extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1))
                         .addGap(37, 37, 37))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(17, 17, 17))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
-                                .addGap(1, 1, 1))
-                            .addComponent(jLabel1))
-                        .addGap(17, 17, 17)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(18, 18, 18)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton1)
                 .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 83, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(jButton3)
                 .addContainerGap())
         );
@@ -202,11 +195,9 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-        // TODO add your handling code here:
-       
+              
         switch(jComboBox1.getSelectedIndex()){
-            case 1:
-                               
+            case 1:                               
                 jComboBox2.setVisible(false);
                 jLabel1.setVisible(false);
                 jTextField1.setVisible(false);
@@ -214,45 +205,33 @@ public class Administrador extends javax.swing.JFrame {
                 jLabel3.setVisible(false);
                 jTextField3.setVisible(false);
                 jTextField4.setVisible(false);
-                jButton1.setVisible(false);
-                
-         
-                
+                jButton1.setVisible(false);            
                 break;
             case 2:
-                jComboBox2.setVisible(true);
-               
+                jComboBox2.setVisible(true);               
                 jLabel1.setVisible(false);
                 jTextField1.setVisible(false);
                 jLabel2.setVisible(false);
                 jLabel3.setVisible(false);
                 jTextField3.setVisible(false);
                 jTextField4.setVisible(false);
-                jButton1.setVisible(false);
-                
-                                    
+                jButton1.setVisible(false);                                
                 break;
             case 3: 
                 jLabel1.setVisible(true);
                 jTextField1.setVisible(true);
-                jButton1.setVisible(true);
-                
+                jButton1.setVisible(true);                
                 jComboBox2.setVisible(false);
                 jLabel2.setVisible(false);
                 jLabel3.setVisible(false);
                 jTextField3.setVisible(false);
-                jTextField4.setVisible(false);
-                
-                               
-                
-                break;
-                
+                jTextField4.setVisible(false);               
+                break;                
             case 4: 
                 jLabel2.setVisible(true);
                 jLabel3.setVisible(true);
                 jTextField3.setVisible(true);
-                jTextField4.setVisible(true);
-               
+                jTextField4.setVisible(true);               
                 jComboBox2.setVisible(false);
                 jLabel1.setVisible(false);
                 jTextField1.setVisible(false);
@@ -264,10 +243,8 @@ public class Administrador extends javax.swing.JFrame {
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
         // TODO add your handling code here:
         
-         switch(jComboBox2.getSelectedIndex()){
-             
-            case 1: 
-                
+         switch(jComboBox2.getSelectedIndex()){             
+            case 1:                 
                 jTable1.setVisible(false);
                 boolean match=false;
                 for(int i=0;i<jTable1.getRowCount();i++){
@@ -276,8 +253,8 @@ public class Administrador extends javax.swing.JFrame {
                         }
                     if(match==true){
                         Object ed[]={jTable1.getValueAt(i, 0),jTable1.getValueAt(i, 1),jTable1.getValueAt(i, 2),
-                             jTable1.getValueAt(i, 3),jTable1.getValueAt(i, 4),jTable1.getValueAt(i, 5),jTable1.getValueAt(i, 6)};
-                        
+                                     jTable1.getValueAt(i, 3),jTable1.getValueAt(i, 4),jTable1.getValueAt(i, 5),
+                                     jTable1.getValueAt(i, 6)};                        
                         Datos.addRow(ed);
                         jTable2.setModel(Datos);
                     }
@@ -296,10 +273,8 @@ public class Administrador extends javax.swing.JFrame {
                         Datos.addRow(ed);
                         jTable2.setModel(Datos);
                     }
-              }                 
-            
-                break;
-                
+              }      
+                break;                
             case 3:
                 jTable1.setVisible(false);
                 boolean match1=false;
@@ -329,7 +304,8 @@ public class Administrador extends javax.swing.JFrame {
                     }
                     if(match==true){
                         Object ed[]={jTable1.getValueAt(i, 0),jTable1.getValueAt(i, 1),jTable1.getValueAt(i, 2),
-                             jTable1.getValueAt(i, 3),jTable1.getValueAt(i, 4),jTable1.getValueAt(i, 5),jTable1.getValueAt(i, 6)};
+                                     jTable1.getValueAt(i, 3),jTable1.getValueAt(i, 4),jTable1.getValueAt(i, 5),
+                                     jTable1.getValueAt(i, 6)};
                         
                         Datos.addRow(ed);
                         jTable2.setModel(Datos);

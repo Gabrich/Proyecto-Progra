@@ -33,11 +33,14 @@ public class Login extends javax.swing.JFrame {
 
         jLabel1.setText("Usuario :");
 
-        jTextField1.setText("jorge");
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("Password :");
 
-        jPasswordField1.setText("12");
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jPasswordField1ActionPerformed(evt);
@@ -45,7 +48,6 @@ public class Login extends javax.swing.JFrame {
         });
 
         buttonGroup1.add(jRadioButton1);
-        jRadioButton1.setSelected(true);
         jRadioButton1.setText("Administrador");
         jRadioButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,7 +155,7 @@ public class Login extends javax.swing.JFrame {
                     a = true;
                 }                                
             }
-        }        
+        }       
         
         if(jRadioButton2.isSelected()){
             for(int i=0; i<datosEm.length; i++){
@@ -166,7 +168,7 @@ public class Login extends javax.swing.JFrame {
                 }        
             }        
         }
-       
+     //Mensaje que muestra si el usuario o contraseña no estan en el sistema  
     if(a == false){
         jLabel3.setText("Usuario y/o contraseña inválido(s)");
     }
@@ -181,6 +183,10 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
        
     }//GEN-LAST:event_jRadioButton2ActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
