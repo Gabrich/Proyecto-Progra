@@ -26,7 +26,8 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
         this.m = m;        
         initComponents();         
         jLabel8.setText(dia+"/ "+mes+"/ "+año);         
-        jButton2.setVisible(false);        
+        jButton2.setVisible(false);  
+       
     }                                            
 
     public Punto_de_Ventas(DefaultTableModel Venta) {
@@ -362,7 +363,7 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
         for(int i = 0; i<jTable2.getRowCount(); i++) {           
             String cod_prod = (String) jTable2.getValueAt(i, 1);
             int cantidad = (int) jTable2.getValueAt(i, 0);            
-            Object match[] = {jLabel7.getText(),jLabel8.getText(),cod_prod,cantidad,m.login.jTextField1.getText(),jTextField1.getText(),jLabel18.getText()};            
+            Object match[] = {jLabel7.getText(),jLabel8.getText(),cod_prod,cantidad,m.login.jTextField1.getText(),jTextField1.getText(),jLabel16.getText()};            
             adminTable.addRow(match);
         }        
                 
@@ -401,7 +402,7 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
          }
         
         jLabel12.setText(" $ "+total*1.19);
-        jLabel16.setText(" $ "+total);
+        jLabel16.setText(String.valueOf(total));
         jLabel19.setText(" $ "+total*0.19);
         jLabel18.setText(" $ "+total*1.19);
                
