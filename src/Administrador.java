@@ -18,8 +18,8 @@ public class Administrador extends javax.swing.JFrame {
         jTextField1.setVisible(false);
         jLabel2.setVisible(false);
         jLabel3.setVisible(false);
-        jTextField3.setVisible(false);
-        jTextField4.setVisible(false);
+        jSpinner1.setVisible(false);
+        jSpinner2.setVisible(false);
         jButton1.setVisible(false);   
         jButton2.setVisible(false);
     }
@@ -47,14 +47,14 @@ public class Administrador extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox();
         jTextField1 = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField4 = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jSpinner1 = new javax.swing.JSpinner();
+        jSpinner2 = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -141,25 +141,25 @@ public class Administrador extends javax.swing.JFrame {
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jButton1)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jButton1)
+                                    .addGap(138, 138, 138)
+                                    .addComponent(jButton2))
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                         .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addGroup(layout.createSequentialGroup()
-                                            .addGap(55, 55, 55)
+                                            .addGap(51, 51, 51)
                                             .addComponent(jLabel2)
-                                            .addGap(82, 82, 82)
+                                            .addGap(89, 89, 89)
                                             .addComponent(jLabel3))
                                         .addGroup(layout.createSequentialGroup()
                                             .addGap(36, 36, 36)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(jButton2)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addGap(44, 44, 44)
-                                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
+                                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(57, 57, 57)
+                                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -169,31 +169,27 @@ public class Administrador extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel1))
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2))
                         .addGap(37, 37, 37))
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(17, 17, 17))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addGap(18, 18, 18)))
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(11, 11, 11)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(11, 11, 11)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -219,8 +215,8 @@ public class Administrador extends javax.swing.JFrame {
                 jTextField1.setVisible(false);
                 jLabel2.setVisible(false);
                 jLabel3.setVisible(false);
-                jTextField3.setVisible(false);
-                jTextField4.setVisible(false);
+                jSpinner1.setVisible(false);
+                jSpinner2.setVisible(false);
                 jButton1.setVisible(false);  
                 jButton2.setVisible(false);
                 break;
@@ -230,8 +226,8 @@ public class Administrador extends javax.swing.JFrame {
                 jTextField1.setVisible(false);
                 jLabel2.setVisible(false);
                 jLabel3.setVisible(false);
-                jTextField3.setVisible(false);
-                jTextField4.setVisible(false);
+                jSpinner1.setVisible(false);
+                jSpinner2.setVisible(false);
                 jButton1.setVisible(false); 
                 jButton2.setVisible(false);
                 break;
@@ -242,15 +238,15 @@ public class Administrador extends javax.swing.JFrame {
                 jComboBox2.setVisible(false);
                 jLabel2.setVisible(false);
                 jLabel3.setVisible(false);
-                jTextField3.setVisible(false);
-                jTextField4.setVisible(false);
+                jSpinner1.setVisible(false);
+                jSpinner2.setVisible(false);
                 jButton2.setVisible(false);
                 break;                
             case 4: 
                 jLabel2.setVisible(true);
                 jLabel3.setVisible(true);
-                jTextField3.setVisible(true);
-                jTextField4.setVisible(true); 
+                jSpinner1.setVisible(true);
+                jSpinner2.setVisible(true); 
                 jButton2.setVisible(true);
                 jComboBox2.setVisible(false);
                 jLabel1.setVisible(false);
@@ -338,14 +334,15 @@ public class Administrador extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        if(Integer.parseInt(jTextField3.getText())>Integer.parseInt(jTextField4.getText())){
+        if((int) jSpinner1.getValue() > (int) jSpinner2.getValue()){
             JOptionPane.showMessageDialog(this, "Ingrese montos en forma correcta");
         }
         
-               
+        int a = (int) jSpinner1.getValue();
+        int b = (int) jSpinner2.getValue();
         boolean match=false;
                 for(int i=0;i<jTable1.getRowCount();i++){
-                    if(((int)jTable1.getValueAt(i, 6))>=Integer.parseInt(jTextField3.getText())&&((int)jTable1.getValueAt(i, 6)<=Integer.parseInt(jTextField4.getText()))){
+                    if((Integer.parseInt(String.valueOf(jTable1.getValueAt(i, 6))) >= a) && (Integer.parseInt(String.valueOf(jTable1.getValueAt(i, 6))) <= b)){
                         match=true;
                     }
                     if(match==true){
@@ -407,10 +404,10 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JSpinner jSpinner2;
     public javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
