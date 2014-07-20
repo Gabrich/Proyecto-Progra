@@ -412,9 +412,9 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
          }
         
         jLabel12.setText(" $ "+total*1.19);
-        jLabel16.setText(" $ "+String.valueOf(total));
-        jLabel19.setText(" $ "+total*0.19);
-        jLabel18.setText(" $ "+total*1.19);
+        jLabel16.setText(String.valueOf(total));
+        jLabel19.setText(String.valueOf(total*0.19));
+        jLabel18.setText(String.valueOf(total*1.19));
                
     }//GEN-LAST:event_jButton1ActionPerformed
 

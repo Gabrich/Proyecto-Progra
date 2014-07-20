@@ -1,3 +1,4 @@
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Administrador extends javax.swing.JFrame {
@@ -19,7 +20,8 @@ public class Administrador extends javax.swing.JFrame {
         jLabel3.setVisible(false);
         jTextField3.setVisible(false);
         jTextField4.setVisible(false);
-        jButton1.setVisible(false);      
+        jButton1.setVisible(false);   
+        jButton2.setVisible(false);
     }
 
     public Administrador(DefaultTableModel Admin) {
@@ -52,6 +54,7 @@ public class Administrador extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -110,6 +113,13 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setText("Filtrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -130,23 +140,26 @@ public class Administrador extends javax.swing.JFrame {
                             .addGap(18, 18, 18)
                             .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jButton1)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(55, 55, 55)
-                                    .addComponent(jLabel2)
-                                    .addGap(82, 82, 82)
-                                    .addComponent(jLabel3))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(36, 36, 36)
-                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(44, 44, 44)
-                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(259, 259, 259)
-                        .addComponent(jButton1))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(55, 55, 55)
+                                            .addComponent(jLabel2)
+                                            .addGap(82, 82, 82)
+                                            .addComponent(jLabel3))
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(36, 36, 36)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jButton2)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addGap(44, 44, 44)
+                                                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))))))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -175,10 +188,12 @@ public class Administrador extends javax.swing.JFrame {
                             .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
-                .addGap(22, 22, 22)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -206,7 +221,8 @@ public class Administrador extends javax.swing.JFrame {
                 jLabel3.setVisible(false);
                 jTextField3.setVisible(false);
                 jTextField4.setVisible(false);
-                jButton1.setVisible(false);            
+                jButton1.setVisible(false);  
+                jButton2.setVisible(false);
                 break;
             case 2:
                 jComboBox2.setVisible(true);               
@@ -216,7 +232,8 @@ public class Administrador extends javax.swing.JFrame {
                 jLabel3.setVisible(false);
                 jTextField3.setVisible(false);
                 jTextField4.setVisible(false);
-                jButton1.setVisible(false);                                
+                jButton1.setVisible(false); 
+                jButton2.setVisible(false);
                 break;
             case 3: 
                 jLabel1.setVisible(true);
@@ -226,13 +243,15 @@ public class Administrador extends javax.swing.JFrame {
                 jLabel2.setVisible(false);
                 jLabel3.setVisible(false);
                 jTextField3.setVisible(false);
-                jTextField4.setVisible(false);               
+                jTextField4.setVisible(false);
+                jButton2.setVisible(false);
                 break;                
             case 4: 
                 jLabel2.setVisible(true);
                 jLabel3.setVisible(true);
                 jTextField3.setVisible(true);
-                jTextField4.setVisible(true);               
+                jTextField4.setVisible(true); 
+                jButton2.setVisible(true);
                 jComboBox2.setVisible(false);
                 jLabel1.setVisible(false);
                 jTextField1.setVisible(false);
@@ -312,7 +331,34 @@ public class Administrador extends javax.swing.JFrame {
                         jTable2.setModel(Datos);
                     }
                 }
+                if(match==false){
+                    JOptionPane.showMessageDialog(this, "El cliente no ha realizado compras");
+                }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        if(Integer.parseInt(jTextField3.getText())>Integer.parseInt(jTextField4.getText())){
+            JOptionPane.showMessageDialog(this, "Ingrese montos en forma correcta");
+        }
+        
+               
+        boolean match=false;
+                for(int i=0;i<jTable1.getRowCount();i++){
+                    if(((int)jTable1.getValueAt(i, 6))>=Integer.parseInt(jTextField3.getText())&&((int)jTable1.getValueAt(i, 6)<=Integer.parseInt(jTextField4.getText()))){
+                        match=true;
+                    }
+                    if(match==true){
+                        Object ed[]={jTable1.getValueAt(i, 0),jTable1.getValueAt(i, 1),jTable1.getValueAt(i, 2),
+                                     jTable1.getValueAt(i, 3),jTable1.getValueAt(i, 4),jTable1.getValueAt(i, 5),
+                                     jTable1.getValueAt(i, 6)};
+                        
+                        Datos.addRow(ed);
+                        jTable2.setModel(Datos);
+                    }
+                }
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -352,6 +398,7 @@ public class Administrador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
