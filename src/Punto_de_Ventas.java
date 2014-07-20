@@ -14,10 +14,8 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     String año = Integer.toString(c.get(Calendar.YEAR));
     Object col[]={"Rut","Nombre","Direccion","Comuna","Giro","Telefono"};
     String clientes[][]={{"18575347-6","Gabriel Roman ","Antonio Varas 897","Temuco","Deporte","2675421"},
-                          {"18727167-3","Jorge Canio","Ines de Suarez 02080","Temuco","Deporte","2786443"}};
-    
-    //String x = (String) m.stock.Venta.getValueAt(0, 0);
-    
+                          {"18727167-3","Jorge Canio","Ines de Suarez 02080","Temuco","Deporte","2786443"}};    
+        
     DefaultTableModel registroCli = new DefaultTableModel(clientes, col);
     
     Object columnas[]={"Nº Venta","Fecha","Codigo Producto","Cantidad","Vendedor","rut cliente","monto"};
@@ -27,16 +25,16 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     public Punto_de_Ventas(Manager m) {
         this.m = m;        
         initComponents();         
-        jLabel8.setText(dia+"/ "+mes+"/ "+año);  
-        //jLabel12.setText(x);
+        jLabel8.setText(dia+"/ "+mes+"/ "+año);         
         jButton2.setVisible(false);
-       // Admin = (DefaultTableModel) m.adm.jTable1.getModel(); <---- no me funciona esta linea ¿?
-    }     
+        //Admin = (DefaultTableModel) m.adm.jTable1.getModel(); //<---- Esta linea deberia obtener el modelo 
+                                                                   //de la tabla que se encuentra en Administrador, pero me tira error
+    }                                            
 
     public Punto_de_Ventas(DefaultTableModel Venta) {
         this.Venta = m.stock.Venta;
         initComponents();
-        jTable2.setModel(Venta);        
+        jTable2.setModel(Venta);  
     }     
 
     /**
@@ -364,13 +362,11 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
         jLabel7.setText(String.valueOf(n));
         for(int i = 0; i<jTable2.getRowCount(); i++) {           
             String cod_prod = (String) jTable2.getValueAt(i, 1);
-            int cantidad = (int) jTable2.getValueAt(i, 0);
-            
-            Object match[] = {n,jLabel8.getText(),cod_prod,cantidad,m.login.jTextField1.getText(),jTextField1.getText(),null};
+            int cantidad = (int) jTable2.getValueAt(i, 0);            
+            Object match[] = {jLabel7.getText(),jLabel8.getText(),cod_prod,cantidad,m.login.jTextField1.getText(),jTextField1.getText(),jLabel18.getText()};
             Admin.addRow(match);
         }        
-        
-        
+                
         JOptionPane.showMessageDialog(this, "Venta Realizada");
         m.adm.setVisible(true);
                 

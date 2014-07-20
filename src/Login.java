@@ -5,14 +5,11 @@ public class Login extends javax.swing.JFrame {
     
     Object[][] datosEm={{"edgardo","abc"},{"gabriel","123"},{"jorge","12"}};
     Object[][] datosAdm={{"jorge","12"}};
-    
-    
-    
+        
     Manager m;
     
     public Login(Manager m) {
-        this.m = m;
-        
+        this.m = m;        
         initComponents();
     }
 

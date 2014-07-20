@@ -18,13 +18,10 @@ public class Stock extends javax.swing.JFrame {
      DefaultTableModel StockProd = new DefaultTableModel(productos,columnas);
      DefaultTableModel TablaStock = new DefaultTableModel(null,columnas);
      
-     JLabel Logo = new JLabel();    
-      
+     JLabel Logo = new JLabel();     
      
-     public DefaultTableModel Venta;
-     
-     //public DefaultTableModel venta=new DefaultTableModel(null,col);
-   
+     public DefaultTableModel Venta;    
+        
     public Stock(Manager m) {
                        
         this.m=m;
@@ -51,6 +48,8 @@ public class Stock extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jTextField1.setText("copa");
 
         jToggleButton1.setText("Buscar Producto");
         jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
