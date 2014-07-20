@@ -197,7 +197,8 @@ public class Administrador extends javax.swing.JFrame {
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
               
         switch(jComboBox1.getSelectedIndex()){
-            case 1:                               
+            case 1:     
+                jTable1.setVisible(true);
                 jComboBox2.setVisible(false);
                 jLabel1.setVisible(false);
                 jTextField1.setVisible(false);
