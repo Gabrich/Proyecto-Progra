@@ -188,8 +188,7 @@ public class Stock extends javax.swing.JFrame {
         }
         while(TablaStock.getRowCount()>0)TablaStock.removeRow(0);       
         this.setVisible(false);
-        m.ptoVenta.setVisible(true);  
-                
+        m.ptoVenta.setVisible(true);                
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
@@ -209,8 +208,6 @@ public class Stock extends javax.swing.JFrame {
         if(a == false){
             JOptionPane.showMessageDialog(this, "Busqueda no coincide");
         }
-        
-
     }//GEN-LAST:event_jToggleButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
