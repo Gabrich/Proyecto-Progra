@@ -12,10 +12,14 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     String dia = Integer.toString(c.get(Calendar.DATE));
     String mes = Integer.toString(c.get(Calendar.MONTH));
     String año = Integer.toString(c.get(Calendar.YEAR));
+        // Metodo que muestra la fecha mediante la importacion de la biblioteca Calendar
+    
+    //Arreglos que contiene los nombres de las columnas del TableModel registroCli
     Object col[]={"Rut","Nombre","Direccion","Comuna","Giro","Telefono"};
+    //Datos de los clientes almacendos
     String clientes[][]={{"18575347-6","Gabriel Roman ","Antonio Varas 897","Temuco","Deporte","2675421"},
                           {"18727167-3","Jorge Canio","Ines de Suarez 02080","Temuco","Deporte","2786443"}};    
-        
+     //Modelo de tabla que contiene los datos de los clientes registrados
     DefaultTableModel registroCli = new DefaultTableModel(clientes, col);
     
     Object columnas[]={"Nº Venta","Fecha","Codigo Producto","Cantidad","Vendedor","rut cliente","monto"};
@@ -357,6 +361,11 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+      /*Método que guarda los datos de la venta (N° de documento, fecha, codigo del producto vendido,
+       * cantidad vendida, vendedor, comprador y monto de la venta) y se envían a la clase administrador a 
+       * traves de un TableModel, además de limpian los campos de datos de cliente y la venta realizada.
+       */
+        
         DefaultTableModel adminTable = (DefaultTableModel)m.adm.jTable1.getModel();
         int n = Integer.parseInt(jLabel7.getText())+1;        
         for(int i = 0; i<jTable2.getRowCount(); i++) {           
@@ -384,7 +393,9 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-                
+/*Metodo que muestra los datos de los clientes almacenados al ingresar su rut, si este no está registrado,
+ * permite la adicion de sus datos, además muestra el valor total de la venta
+ */                
         boolean a=false;
         for(int i=0;i<registroCli.getRowCount();i++){
             if(jTextField1.getText().equals((String)registroCli.getValueAt(i, 0))){
@@ -423,7 +434,9 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+       /*Metodo que permite el ingreso de nuevos clientes a la tabla registroCli, verificando que se ingresen
+        * todos los campos solicitados.
+        */
         
         if(!jTextField1.getText().equals("")&&!jTextField2.getText().equals("")&&!jTextField3.getText().equals("")
                 &&!jTextField4.getText().equals("")&&!jTextField5.getText().equals("")&&!jTextField6.getText().equals("")){    

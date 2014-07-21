@@ -7,7 +7,10 @@ import javax.swing.table.DefaultTableModel;
 
 public class Stock extends javax.swing.JFrame {
      Manager m;         
-     Object columnas[]={"Producto","Caracteristicas","Codigo","Precio","Cantidad en Stock"};          
+     //Arreglo que contiene el nonombre de las columnas de la tabla StockProd
+     Object columnas[]={"Producto","Caracteristicas","Codigo","Precio","Cantidad en Stock"};
+     
+     //Arreglo que contiene los datos de los productos que vende la empresa:
      Object productos[][]={{"Galvano Vidrio", "Galvano de vidrio 8x5cm","Gal01",5000,40},
                            {"Galvano Madera", "Galvano de Madera 8x6cm","Gal02",3000,30},
                            {"Trofeo Karate ", "Trofeo de Karate patada, Alt. 20cm ","Tro01",6000,40},
@@ -16,7 +19,10 @@ public class Stock extends javax.swing.JFrame {
                            {"Copa", "Copa modelo 250 Alt. 50cm","Cop250",25000,30}};
          
      DefaultTableModel StockProd = new DefaultTableModel(productos,columnas);
+     //Modelo de tabla donde se encuentran almacenados todos productos.
+     
      DefaultTableModel TablaStock = new DefaultTableModel(null,columnas);
+     //Modelo que tabla que mostrará los productos solicitados por el vendedor
      
      public DefaultTableModel Venta;    
 
@@ -27,7 +33,8 @@ public class Stock extends javax.swing.JFrame {
         initComponents();        
         jTable2.setModel(TablaStock);                     
         Venta = (DefaultTableModel) m.ptoVenta.jTable2.getModel();
-        
+        //Tabla que contiene los productos que se seleccionan para la venta,
+        //los cuales se muestran en la clase Punto de Venta
     }   
 
    
@@ -166,7 +173,12 @@ public class Stock extends javax.swing.JFrame {
 
      @SuppressWarnings("empty-statement")
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        for(int i = 0; i<TablaStock.getRowCount(); i++) {
+/*Extrae los datos de los productos necesarios para realizar la venta (Cantidad, codigo del producto,
+ * descripcion, valor unitario y calculo del total), luego almacena los datos en el arreglo match
+ * que se añade al Modelo tabla Venta y se envía a punto de venta.
+ */        
+         
+         for(int i = 0; i<TablaStock.getRowCount(); i++) {
             String Codigo = (String) TablaStock.getValueAt(i, 2);
             String Descripcion = (String) TablaStock.getValueAt(i, 1);
             int Valor_Unitario = (int) TablaStock.getValueAt(i, 3);
@@ -182,6 +194,9 @@ public class Stock extends javax.swing.JFrame {
 
     private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
         
+        /*Compara el texto ingresado con en nombre generico de los productos almacenados en la tabla Stock Prod,
+         * si el texto coincide, muestra los detalles del producto.
+         */
         boolean a = false;
         for(int i=0; i<StockProd.getRowCount(); i++){
             if(jTextField1.getText().equalsIgnoreCase((String) StockProd.getValueAt(i, 0))){
@@ -205,10 +220,15 @@ public class Stock extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //Elimina la fila del producto seleccionado
         TablaStock.removeRow(jTable2.getSelectedRow());
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTable2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable2MouseClicked
+      /*Metodo que muestra las imagenes respectivas a cada producto al hacer clic
+       * sobre ellos en la jtable2
+       */ 
+        
         int b = jTable2.getSelectedRow();  
         String c = (String) jTable2.getValueAt(b, 2);
         if("Gal01".equals(c)) {

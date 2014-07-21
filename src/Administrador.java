@@ -206,7 +206,12 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
-              
+      /*
+       * Método que hace visible los campos necesarios para realizar la busqueda de los datos, según los 
+       * requerimientos para cada informe al seleccionar cada opcion del ComboBox
+       */  
+        
+        
         switch(jComboBox1.getSelectedIndex()){
             case 1:     
                 jTable1.setVisible(true);
@@ -257,7 +262,9 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
     private void jComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox2ActionPerformed
-        // TODO add your handling code here:
+        /*Metodo que muestra los datos de las ventas realizas por el vendedor selecionado en el Combobox, 
+         *  los datos son agregados a un arreglo y visulaizados en la tabla 2.
+         */
         
          switch(jComboBox2.getSelectedIndex()){             
             case 1:                 
@@ -311,7 +318,9 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+    /* Muestra los datos de las ventas realizadas filtradas segun el rut del cliente que realizó la compra,
+     * los datos son almacenados en un TableModel y mostrados en la tabla 2 de la clase administrador.
+     */
         
          boolean match=false;
                 for(int i=0;i<jTable1.getRowCount();i++){
@@ -333,7 +342,9 @@ public class Administrador extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
+        /* Muestra los datos de las ventas comprendidas entre los montos ingresados en los Spinner,
+         * estos valores son validados de modo que el valor maximo sea mayor que el mínimo requerido.  
+         */ 
         if((int) jSpinner1.getValue() > (int) jSpinner2.getValue()){
             JOptionPane.showMessageDialog(this, "Ingrese montos en forma correcta");
         }
