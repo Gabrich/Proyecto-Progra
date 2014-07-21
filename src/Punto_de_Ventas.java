@@ -370,8 +370,8 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
         int n = Integer.parseInt(jLabel7.getText())+1;        
         for(int i = 0; i<jTable2.getRowCount(); i++) {           
             String cod_prod = (String) jTable2.getValueAt(i, 1);
-            int cantidad = (int) jTable2.getValueAt(i, 0);            
-            Object match[] = {jLabel7.getText(),jLabel8.getText(),cod_prod,cantidad,m.login.jTextField1.getText(),jTextField1.getText(),jLabel16.getText()};            
+            int cantidad = (int) jTable2.getValueAt(i, 0);             
+            Object match[] = {jLabel7.getText(),jLabel8.getText(),cod_prod,cantidad,m.login.jTextField1.getText(),jTextField1.getText(),jTable2.getValueAt(i, 4)};            
             adminTable.addRow(match);
         } 
         jTextField2.setText(null);
@@ -449,12 +449,16 @@ public class Punto_de_Ventas extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
-                jTextField2.setText(null);
-                jTextField3.setText(null);
-                jTextField4.setText(null);
-                jTextField5.setText(null);
-                jTextField6.setText(null);
+        jTextField2.setText(null);
+        jTextField3.setText(null);
+        jTextField4.setText(null);
+        jTextField5.setText(null);
+        jTextField6.setText(null);
+        
+        int a =m.stock.Venta.getRowCount()-1;         
+        for(int i=a;i>=0;i--){            
+            m.stock.Venta.removeRow(i);
+        }   
         
         this.setVisible(false);
         m.login.setVisible(true);

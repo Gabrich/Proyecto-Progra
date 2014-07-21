@@ -55,6 +55,7 @@ public class Administrador extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jSpinner1 = new javax.swing.JSpinner();
         jSpinner2 = new javax.swing.JSpinner();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -120,6 +121,13 @@ public class Administrador extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setText("Limpiar tabla");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -131,7 +139,8 @@ public class Administrador extends javax.swing.JFrame {
                             .addContainerGap()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layout.createSequentialGroup()
-                                    .addGap(495, 495, 495)
+                                    .addComponent(jButton4)
+                                    .addGap(422, 422, 422)
                                     .addComponent(jButton3))
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createSequentialGroup()
@@ -163,7 +172,7 @@ public class Administrador extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 592, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(71, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -189,12 +198,14 @@ public class Administrador extends javax.swing.JFrame {
                     .addComponent(jButton1)
                     .addComponent(jButton2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton3)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
+                .addGap(25, 25, 25))
         );
 
         pack();
@@ -268,7 +279,7 @@ public class Administrador extends javax.swing.JFrame {
         
          switch(jComboBox2.getSelectedIndex()){             
             case 1:                 
-                jTable1.setVisible(false);
+                jTable1.setVisible(true);
                 boolean match=false;
                 for(int i=0;i<jTable1.getRowCount();i++){
                     if(jTable1.getValueAt(i, 4).equals("edgardo")){
@@ -283,7 +294,7 @@ public class Administrador extends javax.swing.JFrame {
                     }
               }                 
                 break;
-            case 2: jTable1.setVisible(false);
+            case 2: jTable1.setVisible(true);
                 boolean match2=false;
                 for(int i=0;i<jTable1.getRowCount();i++){
                     if(jTable1.getValueAt(i, 4).equals("gabriel")){
@@ -299,7 +310,7 @@ public class Administrador extends javax.swing.JFrame {
               }      
                 break;                
             case 3:
-                jTable1.setVisible(false);
+                jTable1.setVisible(true);
                 boolean match1=false;
                 for(int i=0;i<jTable1.getRowCount();i++){
                     if(jTable1.getValueAt(i, 4).equals("jorge")){
@@ -368,6 +379,13 @@ public class Administrador extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        int a =Datos.getRowCount()-1;         
+        for(int i=a;i>=0;i--){            
+            Datos.removeRow(i);
+        } 
+    }//GEN-LAST:event_jButton4ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -408,6 +426,7 @@ public class Administrador extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JComboBox jComboBox2;
     private javax.swing.JLabel jLabel1;
